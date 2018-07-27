@@ -2,7 +2,7 @@ import from passlib.hash import pbkdf2_sha512
 
 class Utils(object):
 
-    @statimethod
+    @staticmethod
     def hash_password(password):
         '''
         Hashes a password using pbkdf2_sha512

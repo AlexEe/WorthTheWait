@@ -32,7 +32,8 @@ class User(object):
             raise UserErrors.UserNotExistsError('This user does not exist.')
         if not Utils.check_hashed_password(password, user_data['password']):
             # Tell user that their password is wrong
-            raise UserErrors.IncorrectPasswordError('The password is wrong.')
+            raise UserErrors.IncorrectPasswordError('This password is wrong.')
 
         return True
 
+    def login_not_valid(self):
