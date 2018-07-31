@@ -1,4 +1,4 @@
-import from passlib.hash import pbkdf2_sha512
+from passlib.hash import pbkdf2_sha512
 
 class Utils(object):
 

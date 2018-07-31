@@ -25,15 +25,11 @@ class User(object):
         :param password: A sha512 hashed password (encryption)
         :return: True if valid, False otherwise
         '''
-
         user_data = Database.find_one('users', {'email': email}) # Password in sha512 -> pbkdf2_sha512 AND looks in users collection in price_alert database and checks for json file email
         if user_data is None:
-            # Tell user that their email doesn't exist
             raise UserErrors.UserNotExistsError('This user does not exist.')
         if not Utils.check_hashed_password(password, user_data['password']):
-            # Tell user that their password is wrong
             raise UserErrors.IncorrectPasswordError('This password is wrong.')
 
         return True
 
-    def login_not_valid(self):

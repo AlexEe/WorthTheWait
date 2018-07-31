@@ -1,5 +1,3 @@
-__author__ = AlexEe
-
 
 class UserNotExistsError(Exception):
     def __init__(self, message):
@@ -9,6 +7,7 @@ class IncorrectPasswordError(Exception):
     def __init__(self, message):
         self.message = message
 
-class LoginNotValidError(Exception):
+'''class LoginNotValidError(Exception):
     def __init__(self, message):
         self.message = message
+'''

@@ -1,7 +1,8 @@
 from flask import Blueprint, request, session, url_for, render_template
 from werkzeug.utils import redirect
-import src.models.users.errors as UserErrors
-from src.models.users.users import User
+from src.models.users.user import User
+'''import src.models.users.errors as UserErrors'''
+
 
 user_blueprint = Blueprint('users', __name__)
 
@@ -19,11 +20,11 @@ def login_user():
             return redirect(url_for('.user_alerts'))
             # redirects user to their login page ".user_alerts"
             # url_for redirects to a url connected to a specific method, in this case the user_alerts method
-        else:
+        '''else:
             # email and password are not valid
             raise UserErrors.LoginNotValidError('Your email or password are incorrect. Please re-enter your login details or register for a new account.')
             return render_template('user/login.html')
-
+        '''
     return render_template('user/login.html') # Here the request method is GET: Send user to login page
 
 
@@ -36,7 +37,7 @@ def register_user():
 
 @user_blueprint.route('/alerts')
 def user_alerts():
-    pass
+    return 'This is the alerts page.'
 
 
 @user_blueprint.route('/logout')
